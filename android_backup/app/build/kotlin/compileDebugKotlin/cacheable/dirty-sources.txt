@@ -1,2 +1,0 @@
-/Users/arpitbhushansharma/ManMandir/android/app/src/main/java/com/manmandir/MainActivity.kt
-/Users/arpitbhushansharma/ManMandir/android/app/src/main/java/com/manmandir/MainApplication.kt
