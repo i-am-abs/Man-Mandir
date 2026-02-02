@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Man Mandir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;800&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              saffron: {
+                50: '#fff8f1',
+                100: '#feefc3',
+                500: '#f97316',
+                600: '#ea580c',
+                700: '#c2410c',
+              },
+              maroon: {
+                900: '#7f1d1d',
+              },
+              devotional: {
+                bg: '#fffbf2', // Warm off-white
+                text: '#4a4a4a',
+                darkBg: '#0f172a', // Slate 900
+                darkSurface: '#1e293b', // Slate 800
+              }
+            },
+            fontFamily: {
+              sans: ['Mukta', 'sans-serif'],
+              serif: ['Noto Serif Devanagari', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f3f4f6; /* Gray-100 outside the mobile container */
+      }
+      .dark body {
+        background-color: #020617;
+      }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-BiB54Gtl.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>

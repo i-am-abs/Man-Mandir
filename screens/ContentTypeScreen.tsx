@@ -1,15 +1,14 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Header from '../components/Header';
 import { GODS_LIST, CONTENT_REGISTRY } from '../constants';
 import { FeatureStatus } from '../types';
-import { BookOpen, Music, Mic2, ArrowLeft, Home, Sun, Moon, Monitor } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { BookOpen, Music, Mic2 } from 'lucide-react';
 
 const ContentTypeScreen: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { theme, setTheme } = useTheme();
   
   const god = GODS_LIST.find(g => g.id === id) || GODS_LIST[0];
 
@@ -25,95 +24,16 @@ const ContentTypeScreen: React.FC = () => {
     { id: 'mantra', title: 'Mantra', subtitle: 'Chanting', icon: <Mic2 />, status: checkStatus('mantra') },
   ];
 
-  const cycleTheme = () => {
-    if (theme === 'system') setTheme('light');
-    else if (theme === 'light') setTheme('dark');
-    else setTheme('system');
-  };
-
-  const getThemeIcon = () => {
-    if (theme === 'system') return <Monitor size={20} color="white" />;
-    if (theme === 'dark') return <Moon size={20} color="white" />;
-    return <Sun size={20} color="white" />;
-  };
-
-  const handleBack = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate('/gods');
-  };
-
   return (
     <Layout>
-      {/* Decorative Header Background */}
-      <div className={`${god.primaryColor} relative pb-12 pt-6 rounded-b-[3rem] shadow-xl overflow-visible z-10 transition-colors duration-300`}>
-        {/* Abstract Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] rounded-b-[3rem]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent rounded-b-[3rem]"></div>
-        
-        {/* Navigation Bar */}
-        <div className="flex items-center justify-between px-6 mb-6 relative z-20">
-             <div className="flex items-center gap-3">
-                <button 
-                    onClick={handleBack} 
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md active:scale-95 transition-all border border-white/10"
-                    aria-label="Back"
-                >
-                    <ArrowLeft size={22} color="white" />
-                </button>
-                <button 
-                    onClick={() => navigate('/home')} 
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md active:scale-95 transition-all border border-white/10"
-                    aria-label="Home"
-                >
-                    <Home size={22} color="white" />
-                </button>
-             </div>
-
-             <div className="flex items-center gap-3">
-                <button 
-                    onClick={cycleTheme}
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md active:scale-95 transition-all border border-white/10"
-                    aria-label="Toggle Theme"
-                >
-                    {getThemeIcon()}
-                </button>
-             </div>
-        </div>
-        
-        {/* Title Section */}
-        <div className="text-center relative z-20 px-4 pb-16">
-             <h1 className="text-4xl font-serif font-bold tracking-wide drop-shadow-lg text-white mb-2">{god.name}</h1>
-             <p className="text-white/90 text-lg font-sans font-medium tracking-wide bg-white/20 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-white/10">{god.hindiName}</p>
-        </div>
-
-        {/* Floating Image Section */}
-        <div className="absolute left-1/2 -bottom-24 transform -translate-x-1/2 z-30">
-            <div className="relative group">
-                {/* Glow Effect */}
-                <div className="absolute -inset-4 bg-white/20 dark:bg-black/20 rounded-full blur-xl animate-pulse"></div>
-                
-                {/* Image Container */}
-                <div className="w-48 h-48 rounded-full p-1.5 bg-white dark:bg-slate-800 shadow-2xl relative">
-                    <div className="w-full h-full rounded-full overflow-hidden relative bg-saffron-50 dark:bg-slate-700">
-                        <img 
-                            src={god.image} 
-                            alt={god.name} 
-                            className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                        />
-                        {/* Inner Shine */}
-                        <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      {/* Spacer for the floating image */}
-      <div className="h-28"></div>
+      <Header 
+        title={`${god.name} ${god.hindiName ? `(${god.hindiName})` : ''}`} 
+        showBack={true} 
+        backPath="/gods" 
+      />
 
       {/* Content List */}
-      <div className="px-6 pb-10 space-y-4">
+      <div className="px-6 py-6 space-y-4 flex-1 overflow-y-auto no-scrollbar">
         {contentTypes.map((type) => (
             <div 
                 key={type.id}

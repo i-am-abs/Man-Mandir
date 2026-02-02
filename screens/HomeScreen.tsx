@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import FeatureCard from '../components/FeatureCard';
@@ -8,9 +8,34 @@ import { useTheme } from '../context/ThemeContext';
 
 const HomeScreen: React.FC = () => {
   const navigate = useNavigate();
-  // Lazy init: Read from localStorage immediately when the component initializes
   const [userName] = useState(() => localStorage.getItem('userName') || 'Devotee');
   const { theme, setTheme } = useTheme();
+  const [backPressCount, setBackPressCount] = useState(0);
+  const [showExitToast, setShowExitToast] = useState(false);
+
+  // Handle Back Button Logic (Double tap to exit simulation)
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      // Prevent immediate exit
+      window.history.pushState(null, document.title, window.location.href);
+      
+      setBackPressCount(prev => prev + 1);
+      setShowExitToast(true);
+      
+      setTimeout(() => {
+        setBackPressCount(0);
+        setShowExitToast(false);
+      }, 2000);
+    };
+
+    // Push state initially so there's something to pop
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
 
   const cycleTheme = () => {
     if (theme === 'system') setTheme('light');
@@ -26,8 +51,8 @@ const HomeScreen: React.FC = () => {
 
   return (
     <Layout>
-      {/* Home Header */}
-      <div className="pt-12 pb-6 px-6">
+      {/* Main Content */}
+      <div className="pt-6 pb-6 px-6 flex-1 overflow-y-auto no-scrollbar">
         <div className="flex justify-between items-start mb-6">
           <div>
             <p className="text-saffron-600 font-medium text-sm uppercase tracking-wider mb-1">Man Mandir</p>
@@ -67,6 +92,13 @@ const HomeScreen: React.FC = () => {
             </div>
         </div>
       </div>
+
+      {/* Exit Toast */}
+      {showExitToast && backPressCount < 2 && (
+        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-full text-sm shadow-lg z-50 animate-fade-in">
+          Press back again to exit
+        </div>
+      )}
     </Layout>
   );
 };

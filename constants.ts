@@ -1,4 +1,3 @@
-
 import { DashboardItem, FeatureStatus, GodProfile, DevotionalContent } from './types';
 
 // --- HANUMAN CONTENT ---
@@ -84,6 +83,22 @@ export const HANUMAN_AARTI: DevotionalContent = {
   ]
 };
 
+export const HANUMAN_MANTRA: DevotionalContent = {
+  type: 'mantra',
+  titleHindi: "हनुमान मंत्र",
+  titleEnglish: "Hanuman Mantra",
+  verses: [
+    { 
+        hindi: "ॐ हं हनुमते नमः॥", 
+        english: "Om Ham Hanumate Namah." 
+    },
+    {
+        hindi: "मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्। वातात्मजं वानरयूथमुख्यं श्रीरामदूतं शरणं प्रपद्ये॥",
+        english: "Manojavam Marutatulyavegam Jitendriyam Buddhimatam Varishtham. Vatatmajam Vanarayuthamukhyam Shriramadutam Sharanam Prapadye."
+    }
+  ]
+};
+
 // --- GANESHA CONTENT ---
 export const GANESHA_CHALISA: DevotionalContent = {
   type: 'chalisa',
@@ -152,8 +167,61 @@ export const GANESHA_AARTI: DevotionalContent = {
   ]
 };
 
-// --- GAYATRI MANTRA ---
-export const GAYATRI_MANTRA_CONTENT: DevotionalContent = {
+export const GANESHA_MANTRA: DevotionalContent = {
+  type: 'mantra',
+  titleHindi: "गणेश मंत्र",
+  titleEnglish: "Ganesh Mantra",
+  verses: [
+    { 
+        hindi: "ॐ गं गणपतये नमः॥", 
+        english: "Om Gam Ganapataye Namah." 
+    },
+    {
+        hindi: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥",
+        english: "Vakratunda Mahakaya Suryakoti Samaprabha. Nirvighnam Kuru Me Deva Sarvakaryeshu Sarvada."
+    }
+  ]
+};
+
+// --- GAYATRI CONTENT ---
+export const GAYATRI_CHALISA: DevotionalContent = {
+    type: 'chalisa',
+    titleHindi: "श्री गायत्री चालीसा",
+    titleEnglish: "Shree Gayatri Chalisa",
+    doha: [
+        { hindi: "ह्रीं श्रीं क्लीं मेधा प्रभा, जीवन ज्योति प्रचण्ड।\nशांति कांति जागृति प्रगति, रचना शक्ति अखण्ड॥", english: "Hrim Shrim Klim Medha Prabha, Jeevan Jyoti Prachand.\nShanti Kanti Jagriti Pragati, Rachna Shakti Akhand." },
+        { hindi: "जगत जननी मंगल करनि, गायत्री सुखधाम।\nप्रणवों सावित्री स्वधा, स्वाहा पूरन काम॥", english: "Jagat Janani Mangal Karni, Gayatri Sukh Dham.\nPranavon Savitri Swadha, Swaha Pooran Kaam." }
+    ],
+    chaupai: [
+        { hindi: "भूर्भुवः स्वः ॐ युत जननी। गायत्री नित कलिमल दहनी॥", english: "Bhur Bhuvah Swaha Om Yut Janani. Gayatri Nit Kalimal Dahani." },
+        { hindi: "अक्षर चौबीस परम पुनीता। इनमें बसें शास्त्र श्रुति गीता॥", english: "Akshar Chaubees Param Punita. Inme Basen Shastra Shruti Geeta." },
+        { hindi: "शाश्वत सतोगुणी सत रूपा। सत्य सनातन सुधा अनूपा॥", english: "Shashwat Satoguni Sat Roopa. Satya Sanatan Sudha Anupa." },
+        { hindi: "हंसारूढ़ श्वेताम्बर धारी। स्वर्ण कान्ति शुचि गगन-बिहारी॥", english: "Hansarudh Shvetambar Dhari. Swarn Kanti Shuchi Gagan-Bihari." },
+        { hindi: "पुस्तक पुष्प कमण्डलु माला। शुभ्र वर्ण तनु नयन विशाला॥", english: "Pustak Pushp Kamandalu Mala. Shubhra Varn Tanu Nayan Vishala." },
+        { hindi: "ध्यान धरत पुलकित हिय होई। सुख उपजत दुःख दुर्मति खोई॥", english: "Dhyan Dharat Pulkit Hiya Hoi. Sukh Upjat Dukh Durmati Khoi." },
+        { hindi: "कामधेनु तुम सुर तरु छाया। निराकार की अद्भुत माया॥", english: "Kamadhenu Tum Sur Taru Chhaya. Nirakar Ki Adbhut Maya." },
+        { hindi: "तुम्हरी शरण गहै जो कोई। तरै सकल संकट सों सोई॥", english: "Tumhari Sharan Gahai Jo Koi. Tarai Sakal Sankat So Soi." },
+        { hindi: "सरस्वती लक्ष्मी तुम काली। दिपै तुम्हारी ज्योति निराली॥", english: "Saraswati Lakshmi Tum Kali. Dipai Tumhari Jyoti Nirali." },
+        { hindi: "तुम्हरी महिमा पार न पावैं। जो शारद शत मुख गुन गावैं॥", english: "Tumhari Mahima Paar Na Pavain. Jo Sharad Shat Mukh Gun Gavain." }
+    ],
+    finalDoha: {
+        hindi: "सोन रूप शुचि शरण गत, जन की आप निहार।\nबालक अपना जान के, भव सागर से तार॥",
+        english: "Son Roop Shuchi Sharan Gat, Jan Ki Aap Nihar.\nBalak Apna Jaan Ke, Bhav Sagar Se Taar."
+    }
+};
+
+export const GAYATRI_AARTI: DevotionalContent = {
+    type: 'aarti',
+    titleHindi: "गायत्री आरती",
+    titleEnglish: "Gayatri Aarti",
+    verses: [
+        { hindi: "जयति जय गायत्री माता, जयति जय गायत्री माता।\nस आदि शक्ति तुम ही, निश्चल बुद्धि विधाता॥", english: "Jayati Jai Gayatri Mata, Jayati Jai Gayatri Mata.\nSa Aadi Shakti Tum Hi, Nishchal Buddhi Vidhata." },
+        { hindi: "जगत के पालनहार, तुम्हीं हो सुख दाता।\nतुम्हारी महिमा अपरम्पार, कोई न पावत पार॥", english: "Jagat Ke Palanhaar, Tumhi Ho Sukh Data.\nTumhari Mahima Aparampaar, Koi Na Pavat Paar." },
+        { hindi: "तुम ही अन्नपूर्णा, तुम ही जगदंबा।\nतुम ही हो संतान, तुम्ही हो अम्बा॥", english: "Tum Hi Annapurna, Tum Hi Jagadamba.\nTum Hi Ho Santan, Tumhi Ho Amba." }
+    ]
+};
+
+export const GAYATRI_MANTRA: DevotionalContent = {
   type: 'mantra',
   titleHindi: "गायत्री मंत्र",
   titleEnglish: "Gayatri Mantra",
@@ -169,13 +237,226 @@ export const GAYATRI_MANTRA_CONTENT: DevotionalContent = {
   ]
 };
 
+// --- RAM CONTENT ---
+export const RAM_CHALISA: DevotionalContent = {
+    type: 'chalisa',
+    titleHindi: "श्री राम चालीसा",
+    titleEnglish: "Shree Ram Chalisa",
+    doha: [
+        { hindi: "श्री रघुबीर भक्त हितकारी, सुनि लीजै प्रभु अरज हमारी।\nनिशि दिन ध्यान धरै जो कोई, ता सम भक्त और नहिं होई॥", english: "Shri Raghubir Bhakta Hitkari, Suni Lijai Prabhu Araj Hamari.\nNishi Din Dhyan Dharai Jo Koi, Ta Sam Bhakta Aur Nahin Hoi." },
+        { hindi: "ध्यान धरे शिवजी मन माहीं, ब्रह्मा इन्द्र पार नहिं पाहीं।\nजय जय जय रघुनाथ कृपाला, सदा करो संतन प्रतिपाला॥", english: "Dhyan Dhare Shivji Man Mahin, Brahma Indra Paar Nahin Pahin.\nJai Jai Jai Raghunath Kripala, Sada Karo Santan Pratipala." }
+    ],
+    chaupai: [
+        { hindi: "भक्तन हित रघुपति अवतारा। लखि दामिनि छवि लज्जित धारा॥", english: "Bhaktan Hit Raghupati Avatara. Lakhi Damini Chhavi Lajjit Dhara." },
+        { hindi: "मरिचिका रूप सुधाये। कौशल्या के उदर समाये॥", english: "Marichika Roop Sudhaye. Kaushalya Ke Udar Samaye." },
+        { hindi: "वीणा, वेणु, शंख, मृदंगा। धरे राम तनु श्री अंगा॥", english: "Veena, Venu, Shankha, Mridanga. Dhare Ram Tanu Shri Anga." },
+        { hindi: "शिव, सनकादिक, ब्रह्मा, नारद। सेवत राम चरण विशारद॥", english: "Shiv, Sankadik, Brahma, Narad. Sevat Ram Charan Visharad." },
+        { hindi: "लक्ष्मण, भरत, शत्रुघ्न संगा। बालकेलि कीन्हि अति रंगा॥", english: "Lakshman, Bharat, Shatrughna Sanga. Balkeli Kinhi Ati Ranga." },
+        { hindi: "काके पंख, बके, खग, धेनु। चरावन जात राम, लखि रेनु॥", english: "Kake Pankh, Bake, Khag, Dhenu. Charavan Jaat Ram, Lakhi Renu." },
+        { hindi: "गुरु वशिष्ठ के चरणन लागा। विद्या ग्रहण कीन्हि बड़भागा॥", english: "Guru Vashishtha Ke Charanan Laga. Vidya Grahan Kinhi Badbhaga." },
+        { hindi: "ताड़का नारि, सुबाहु संहारा। ऋषि यज्ञ कीन्हि रखवारा॥", english: "Tadka Nari, Subahu Sanhara. Rishi Yagya Kinhi Rakhvara." },
+        { hindi: "जनक पुरी रघुबीर पधारे। शिव धनु भङ्ग, सीय उर धारे॥", english: "Janak Puri Raghubir Padhare. Shiv Dhanu Bhang, Siya Ur Dhare." },
+        { hindi: "अवध पुरी रघुनन्दन आये। घर-घर नारी मंगल गाये॥", english: "Avadh Puri Raghunandan Aaye. Ghar-Ghar Nari Mangal Gaye." }
+    ],
+    finalDoha: {
+        hindi: "आप दया राखो सदा, पुनि पुनि नाऊँ माथ।\nभक्ति, मुक्ति, ज्ञान सब, दीजै रघुनाथ॥",
+        english: "Aap Daya Rakho Sada, Puni Puni Naun Maath.\nBhakti, Mukti, Gyan Sab, Dijai Raghunath."
+    }
+};
+
+export const RAM_AARTI: DevotionalContent = {
+    type: 'aarti',
+    titleHindi: "श्री राम आरती",
+    titleEnglish: "Shree Ram Aarti",
+    verses: [
+        { hindi: "श्री रामचन्द्र कृपालु भजु मन हरण भवभय दारुणं।\nनव कंज लोचन कंज मुख कर कंज पद कंजारुणं॥", english: "Shri Ramachandra Kripalu Bhaju Man Haran Bhavabhaya Darunam.\nNava Kanj Lochan Kanj Mukh Kar Kanj Pad Kanjarunam." },
+        { hindi: "कन्दर्प अगणित अमित छवि नव नील नीरद सुन्दरं।\nपट पीत मानहु तडित रुचि शुचि नौमि जनक सुतावरं॥", english: "Kandarp Aganit Amit Chhavi Nav Neel Neerad Sundaram.\nPat Peet Manahu Tadit Ruchi Shuchi Naumi Janak Sutavaram." },
+        { hindi: "भजु दीनबन्धु दिनेश दानव दैत्यवंश निकन्दनं।\nरघुनन्द आनन्दकन्द कौशलचन्द दशरथ नन्दनं॥", english: "Bhaju Deenbandhu Dinesh Danav Daityavansh Nikandanam.\nRaghunand Anandkand Kaushalchand Dashrath Nandanam." },
+        { hindi: "सिर मुकुट कुण्डल तिलक चारु उदारु अङ्ग विभूषणं।\nआजानुभुज शर चाप धर संग्राम जित खरदूषणं॥", english: "Sir Mukut Kundal Tilak Charu Udaru Ang Vibhushanam.\nAajanubhuj Shar Chap Dhar Sangram Jit Khardushanam." },
+        { hindi: "इति वदति तुलसीदास शंकर शेष मुनि मन रंजनं।\nमम हृदय कंज निवास कुरु कामादि खल दल गंजनं॥", english: "Iti Vadati Tulsidas Shankar Shesh Muni Man Ranjanam.\nMam Hriday Kanj Nivas Kuru Kamadi Khal Dal Ganjanam." }
+    ]
+};
+
+export const RAM_MANTRA: DevotionalContent = {
+    type: 'mantra',
+    titleHindi: "श्री राम मंत्र",
+    titleEnglish: "Shree Ram Mantra",
+    verses: [
+        { hindi: "रामाय रामभद्राय रामचन्द्राय वेधसे। रघुनाथाय नाथाय सीताया: पतये नम:॥", english: "Ramaya Ramabhadraya Ramachandraya Vedhase. Raghunathaya Nathaya Sitayah Pataye Namah." },
+        { hindi: "श्री राम जय राम जय जय राम॥", english: "Shri Ram Jai Ram Jai Jai Ram." }
+    ]
+};
+
+// --- KRISHNA CONTENT ---
+export const KRISHNA_CHALISA: DevotionalContent = {
+    type: 'chalisa',
+    titleHindi: "श्री कृष्ण चालीसा",
+    titleEnglish: "Shree Krishna Chalisa",
+    doha: [
+        { hindi: "बंशी शोभित कर मधुर, नील जलद तन श्याम।\nअरुण अधर जनु बिम्बफल, नयन कमल अभिराम॥", english: "Banshi Shobhit Kar Madhur, Neel Jalad Tan Shyam.\nArun Adhar Janu Bimbaphal, Nayan Kamal Abhiram." },
+        { hindi: "पूर्ण इन्द्र, अरविन्द मुख, पीताम्बर शुभ साज।\nजय मनमोहन मदन छवि, कृष्णचन्द्र महाराज॥", english: "Purna Indra, Aravind Mukh, Pitambar Shubh Saaj.\nJai Manmohan Madan Chhavi, Krishnachandra Maharaj." }
+    ],
+    chaupai: [
+        { hindi: "जय यदुनंदन जय जगवंदन। जय वसुदेव देवकी नन्दन॥", english: "Jai Yadunandan Jai Jagvandan. Jai Vasudev Devaki Nandan." },
+        { hindi: "जय यशुदा सुत नन्द दुलारे। जय प्रभु भक्तन के दृग तारे॥", english: "Jai Yashuda Sut Nand Dulare. Jai Prabhu Bhaktan Ke Drig Tare." },
+        { hindi: "जय नटनागर, नाग नथैया। कृष्ण कन्हैया धेनु चरैया॥", english: "Jai Natnagar, Nag Nathaiya. Krishna Kanhaiya Dhenu Charaiya." },
+        { hindi: "पुनि नख पर प्रभु गिरिवर धारो। आओ दीनन कष्ट निवारो॥", english: "Puni Nakh Par Prabhu Girivar Dharo. Aao Deenan Kasht Nivaro." },
+        { hindi: "वंशी मधुर अधर धरि टेरौ। होवे पूर्ण विनय यह मेरौ॥", english: "Vanshi Madhur Adhar Dhari Terau. Hove Purna Vinay Yah Merau." },
+        { hindi: "आओ हरि पुनि माखन चाखो। आज लाज भारत की राखो॥", english: "Aao Hari Puni Makhan Chakho. Aaj Laaj Bharat Ki Rakho." },
+        { hindi: "गोल कपोल, चिबुक अरुणारे। मृदु मुस्कान मोहित जग सारे॥", english: "Gol Kapol, Chibuk Arunare. Mridu Muskan Mohit Jag Sare." },
+        { hindi: "राजित राजिव नयन विशाला। मोर मुकुट वैजंती माला॥", english: "Rajit Rajiv Nayan Vishala. Mor Mukut Vaijanti Mala." },
+        { hindi: "कुण्डल श्रवण, पीत पट आछे। कटि किंकिणी काछनी काछे॥", english: "Kundal Shravan, Peet Pat Aachhe. Kati Kinkini Kachhani Kachhe." },
+        { hindi: "नील जलज सुन्दर तनु सोहे। छबि लखि, सुर नर मुनिमन मोहे॥", english: "Neel Jalaj Sundar Tanu Sohe. Chhabi Lakhi, Sur Nar Muniman Mohe." }
+    ],
+    finalDoha: {
+        hindi: "कृष्ण चालीसा जो पढ़ै, उर धरि ध्यान लगाय।\nसब सुख भोगि, अन्त गति, पावै कृष्ण सहाय॥",
+        english: "Krishna Chalisa Jo Padhai, Ur Dhari Dhyan Lagay.\nSab Sukh Bhogi, Anta Gati, Pavai Krishna Sahay."
+    }
+};
+
+export const KRISHNA_AARTI: DevotionalContent = {
+    type: 'aarti',
+    titleHindi: "श्री कृष्ण आरती",
+    titleEnglish: "Shree Krishna Aarti",
+    verses: [
+        { hindi: "आरती कुंजबिहारी की, श्री गिरिधर कृष्ण मुरारी की॥", english: "Aarti Kunjbihari Ki, Shri Giridhar Krishna Murari Ki." },
+        { hindi: "गले में बैजंती माला, बजावै मुरली मधुर बाला।\nश्रवण में कुण्डल झलकाला, नंद के आनंद नंदलाला॥", english: "Gale Mein Vaijanti Mala, Bajavai Murli Madhur Bala.\nShravan Mein Kundal Jhalkala, Nand Ke Anand Nandlala." },
+        { hindi: "गगन सम अंग कांति काली, राधिका चमक रही आली।\nलतन में ठाढ़े बनमाली, भ्रमर सी अलक, कस्तूरी तिलक, चंद्र सी झलक॥", english: "Gagan Sam Ang Kanti Kali, Radhika Chamak Rahi Aali.\nLatan Mein Thadhe Banmali, Bhramar Si Alak, Kasturi Tilak, Chandra Si Jhalak." },
+        { hindi: "कनकमय मोर मुकुट बिलसै, देवता दर्शन को तरसैं।\nगगन सों सुमन रासि बरसै, बजे मुरचंग, मधुर मृदंग, ग्वालिन संग॥", english: "Kanakmay Mor Mukut Bilasai, Devata Darshan Ko Tarasain.\nGagan So Suman Rasi Barsai, Baje Murchang, Madhur Mridang, Gwalin Sang." }
+    ]
+};
+
+export const KRISHNA_MANTRA: DevotionalContent = {
+    type: 'mantra',
+    titleHindi: "श्री कृष्ण मंत्र",
+    titleEnglish: "Shree Krishna Mantra",
+    verses: [
+        { hindi: "ॐ नमो भगवते वासुदेवाय॥", english: "Om Namo Bhagavate Vasudevaya." },
+        { hindi: "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे। हरे राम हरे राम राम राम हरे हरे॥", english: "Hare Krishna Hare Krishna Krishna Krishna Hare Hare. Hare Ram Hare Ram Ram Ram Hare Hare." }
+    ]
+};
+
+// --- SHIV CONTENT ---
+export const SHIV_CHALISA: DevotionalContent = {
+    type: 'chalisa',
+    titleHindi: "श्री शिव चालीसा",
+    titleEnglish: "Shree Shiv Chalisa",
+    doha: [
+        { hindi: "जय गणेश गिरिजा सुवन, मंगल मूल सुजान।\nकहत अयोध्यादास तुम, देहु अभय वरदान॥", english: "Jai Ganesh Girija Suvan, Mangal Mool Sujan.\nKahat Ayodhyadas Tum, Dehu Abhay Vardan." }
+    ],
+    chaupai: [
+        { hindi: "जय गिरिजा पति दीन दयाला। सदा करत सन्तन प्रतिपाला॥", english: "Jai Girija Pati Deen Dayala. Sada Karat Santan Pratipala." },
+        { hindi: "भाल चन्द्रमा सोहत नीके। कानन कुण्डल नागफनी के॥", english: "Bhal Chandrama Sohat Nike. Kanan Kundal Nagphani Ke." },
+        { hindi: "अंग गौर शिर गंग बहाये। मुण्डमाल तन क्षार लगाये॥", english: "Ang Gaur Shir Gang Bahaye. Mundmal Tan Kshar Lagaye." },
+        { hindi: "वस्त्र खाल बाघम्बर सोहे। छवि को देखि नाग मन मोहे॥", english: "Vastra Khal Baghambar Sohe. Chhavi Ko Dekhi Nag Man Mohe." },
+        { hindi: "मैना मातु की हवे दुलारी। बाम अंग सोहत छवि न्यारी॥", english: "Maina Matu Ki Have Dulari. Bam Ang Sohat Chhavi Nyari." },
+        { hindi: "कर त्रिशूल सोहत छवि भारी। करत सदा शत्रुन क्षयकारी॥", english: "Kar Trishul Sohat Chhavi Bhari. Karat Sada Shatrun Kshaykari." },
+        { hindi: "नन्दि गणेश सोहै तहँ कैसे। सागर मध्य कमल हैं जैसे॥", english: "Nandi Ganesh Sohai Tahan Kaise. Sagar Madhya Kamal Hain Jaise." },
+        { hindi: "कार्तिक श्याम और गणराऊ। या छवि को कहि जात न काऊ॥", english: "Kartik Shyam Aur Ganrau. Ya Chhavi Ko Kahi Jat Na Kau." },
+        { hindi: "देवन जबहीं जाय पुकारा। तबहीं दुख प्रभु आप निवारा॥", english: "Devan Jabahi Jaay Pukara. Tabahi Dukh Prabhu Aap Nivara." },
+        { hindi: "किया उपद्रव तारक भारी। देवन सब मिलि तुमहिं जुहारी॥", english: "Kiya Upadrav Tarak Bhari. Devan Sab Mili Tumahin Juhari." }
+    ],
+    finalDoha: {
+        hindi: "नित नेम कर प्रातः ही, पाठ करौं चालीस।\nतुम मेरी मनोकामना, पूर्ण करो जगदीश॥",
+        english: "Nit Nem Kar Pratah Hi, Path Karaun Chalis.\nTum Meri Manokamna, Purna Karo Jagdish."
+    }
+};
+
+export const SHIV_AARTI: DevotionalContent = {
+    type: 'aarti',
+    titleHindi: "श्री शिव आरती",
+    titleEnglish: "Shree Shiv Aarti",
+    verses: [
+        { hindi: "ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।\nब्रह्मा विष्णु सदाशिव अर्द्धांगी धारा॥", english: "Om Jai Shiv Omkara, Swami Jai Shiv Omkara.\nBrahma Vishnu Sadashiv Arddhangi Dhara." },
+        { hindi: "एकानन चतुरानन पंचानन राजे।\nहंसानन गरुड़ासन वृषवाहन साजे॥", english: "Ekanan Chaturanan Panchanan Raje.\nHansanan Garudasan Vrishvahan Saje." },
+        { hindi: "दो भुज चार चतुर्भुज दस भुज अति सोहे।\nत्रिगुण रूपनिरखता त्रिभुवन जन मोहे॥", english: "Do Bhuj Char Chaturbhuj Das Bhuj Ati Sohe.\nTrigun Rupnirakhta Tribhuvan Jan Mohe." },
+        { hindi: "अक्षमाला वनमाला रुण्डमाला धारी।\nत्रिपुरारी कंसारी कर माला धारी॥", english: "Akshamala Vanmala Rundmala Dhari.\nTripurari Kansari Kar Mala Dhari." },
+        { hindi: "श्वेताम्बर पीताम्बर बाघम्बर अंगे।\nसनकादिक गरुड़ादिक भूतादिक संगे॥", english: "Shvetambar Pitambar Baghambar Ange.\nSankadik Garudadik Bhutadik Sange." }
+    ]
+};
+
+export const SHIV_MANTRA: DevotionalContent = {
+    type: 'mantra',
+    titleHindi: "शिव मंत्र",
+    titleEnglish: "Shiv Mantra",
+    verses: [
+        { hindi: "ॐ नमः शिवाय॥", english: "Om Namah Shivaya." },
+        { hindi: "ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्। उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय मामृतात्॥", english: "Om Tryambakam Yajamahe Sugandhim Pushtivardhanam. Urvarukamiva Bandhanan Mrityormukshiya Mamritat." }
+    ]
+};
+
+// --- DURGA CONTENT ---
+export const DURGA_CHALISA: DevotionalContent = {
+    type: 'chalisa',
+    titleHindi: "श्री दुर्गा चालीसा",
+    titleEnglish: "Shree Durga Chalisa",
+    doha: [
+        { hindi: "नमो नमो दुर्गे सुख करनी। नमो नमो अम्बे दुःख हरनी॥\nनिरंकार है ज्योति तुम्हारी। तिहूँ लोक फैली उजियारी॥", english: "Namo Namo Durge Sukh Karni. Namo Namo Ambe Dukh Harni.\nNirankar Hai Jyoti Tumhari. Tihun Lok Phaili Ujiyari." }
+    ],
+    chaupai: [
+        { hindi: "शशि ललाट मुख महाविशाला। नेत्र लाल भृकुटि विकराला॥", english: "Shashi Lalat Mukh Mahavishala. Netra Lal Bhrikuti Vikrala." },
+        { hindi: "रूप मातु को अधिक सुहावे। दरश करत जन अति सुख पावे॥", english: "Roop Matu Ko Adhik Suhave. Darash Karat Jan Ati Sukh Pave." },
+        { hindi: "तुम संसार शक्ति लय कीना। पालन हेतु अन्न धन दीना॥", english: "Tum Sansar Shakti Lay Kina. Palan Hetu Anna Dhan Dina." },
+        { hindi: "अन्नपूर्णा हुई जग पाला। तुम ही आदि सुन्दरी बाला॥", english: "Annapurna Hui Jag Pala. Tum Hi Aadi Sundari Bala." },
+        { hindi: "प्रलयकाल सब नाशन हारी। तुम गौरी शिवशंकर प्यारी॥", english: "Pralaykal Sab Nashan Hari. Tum Gauri Shivshankar Pyari." },
+        { hindi: "शिव योगी तुम्हरे गुण गावें। ब्रह्मा विष्णु तुम्हें नित ध्यावें॥", english: "Shiv Yogi Tumhare Gun Gaven. Brahma Vishnu Tumhe Nit Dhyaven." },
+        { hindi: "रूप सरस्वती को तुम धारा। दे सुबुद्धि ऋषि मुनिन उबारा॥", english: "Roop Saraswati Ko Tum Dhara. De Subuddhi Rishi Munin Ubara." },
+        { hindi: "धरयो रूप नरसिंह को अम्बा। परगट भई फाड़कर खम्बा॥", english: "Dharyo Roop Narsingh Ko Amba. Pargat Bhai Phadkar Khamba." },
+        { hindi: "रक्षा करि प्रह्लाद बचायो। हिरणाकुश को स्वर्ग पठायो॥", english: "Raksha Kari Prahlad Bachayo. Hirnakush Ko Swarg Pathayo." },
+        { hindi: "लक्ष्मी रूप धरो जग माहीं। श्री नारायण अंग समाहीं॥", english: "Lakshmi Roop Dharo Jag Mahin. Shri Narayan Ang Samahin." }
+    ],
+    finalDoha: {
+        hindi: "मन कामना पूर्ण कर, दुःख दरिद्र हर लेहु।\nमातु आनन्द भरो, जय जय कार करेहु॥",
+        english: "Man Kamana Purna Kar, Dukh Daridra Har Lehu.\nMatu Anand Bharo, Jai Jai Kar Karehu."
+    }
+};
+
+export const DURGA_AARTI: DevotionalContent = {
+    type: 'aarti',
+    titleHindi: "श्री दुर्गा आरती",
+    titleEnglish: "Shree Durga Aarti",
+    verses: [
+        { hindi: "जय अम्बे गौरी, मैया जय श्यामा गौरी।\nतुमको निशदिन ध्यावत, हरि ब्रह्मा शिवरी॥", english: "Jai Ambe Gauri, Maiya Jai Shyama Gauri.\nTumko Nishdin Dhyavat, Hari Brahma Shivri." },
+        { hindi: "माँग सिन्दूर विराजत, टीको मृगमद को।\nउज्ज्वल से दोउ नैना, चन्द्रवदन नीको॥", english: "Maang Sindoor Virajat, Teeko Mrigamad Ko.\nUjjwal Se Dou Naina, Chandravadan Neeko." },
+        { hindi: "कनक समान कलेवर, रक्ताम्बर राजै।\nरक्तपुष्प गल माला, कण्ठन पर साजै॥", english: "Kanak Saman Kalevar, Raktambar Rajai.\nRaktapushp Gal Mala, Kanthan Par Sajai." },
+        { hindi: "केहरि वाहन राजत, खड्ग खप्पर धारी।\nसुर-नर-मुनिजन सेवत, तिनके दुःख हारी॥", english: "Kehari Vahan Rajat, Khadg Khappar Dhari.\nSur-Nar-Munijan Sevat, Tinke Dukh Hari." },
+        { hindi: "कानन कुण्डल शोभित, नासाग्रे मोती।\nकोटिक चन्द्र दिवाकर, राजत सम ज्योति॥", english: "Kanan Kundal Shobhit, Nasagre Moti.\nKotik Chandra Divakar, Rajat Sam Jyoti." }
+    ]
+};
+
+export const DURGA_MANTRA: DevotionalContent = {
+    type: 'mantra',
+    titleHindi: "दुर्गा मंत्र",
+    titleEnglish: "Durga Mantra",
+    verses: [
+        { hindi: "ॐ दुं दुर्गायै नमः॥", english: "Om Dum Durgaye Namah." },
+        { hindi: "सर्वमंगल मांगल्ये शिवे सर्वार्थ साधिके। शरण्ये त्र्यम्बके गौरी नारायणी नमोस्तुते॥", english: "Sarvamangal Mangalye Shive Sarvartha Sadhike. Sharanye Tryambake Gauri Narayani Namostute." }
+    ]
+};
+
 // --- REGISTRY ---
 export const CONTENT_REGISTRY: Record<string, DevotionalContent> = {
   'hanuman_chalisa': HANUMAN_CHALISA,
   'hanuman_aarti': HANUMAN_AARTI,
+  'hanuman_mantra': HANUMAN_MANTRA,
   'ganesha_chalisa': GANESHA_CHALISA,
   'ganesha_aarti': GANESHA_AARTI,
-  'gayatri_mantra': GAYATRI_MANTRA_CONTENT,
+  'ganesha_mantra': GANESHA_MANTRA,
+  'gayatri_chalisa': GAYATRI_CHALISA,
+  'gayatri_aarti': GAYATRI_AARTI,
+  'gayatri_mantra': GAYATRI_MANTRA,
+  'ram_chalisa': RAM_CHALISA,
+  'ram_aarti': RAM_AARTI,
+  'ram_mantra': RAM_MANTRA,
+  'krishna_chalisa': KRISHNA_CHALISA,
+  'krishna_aarti': KRISHNA_AARTI,
+  'krishna_mantra': KRISHNA_MANTRA,
+  'shiv_chalisa': SHIV_CHALISA,
+  'shiv_aarti': SHIV_AARTI,
+  'shiv_mantra': SHIV_MANTRA,
+  'durga_chalisa': DURGA_CHALISA,
+  'durga_aarti': DURGA_AARTI,
+  'durga_mantra': DURGA_MANTRA,
 };
 
 export const DASHBOARD_ITEMS: DashboardItem[] = [
@@ -191,7 +472,7 @@ export const GODS_LIST: GodProfile[] = [
     id: 'hanuman', 
     name: 'Hanuman', 
     hindiName: 'हनुमान', 
-    image: 'https://cdn.pixabay.com/photo/2024/02/09/14/03/ai-generated-8563065_1280.jpg', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Hanuman_idol.jpg/480px-Hanuman_idol.jpg', 
     status: FeatureStatus.ACTIVE, 
     primaryColor: 'bg-orange-600' 
   },
@@ -199,7 +480,7 @@ export const GODS_LIST: GodProfile[] = [
     id: 'ganesha', 
     name: 'Shree Ganesha', 
     hindiName: 'श्री गणेश', 
-    image: 'https://cdn.pixabay.com/photo/2023/09/14/19/11/ganesha-8253683_1280.jpg', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ganesh1.jpg/480px-Ganesh1.jpg', 
     status: FeatureStatus.ACTIVE, 
     primaryColor: 'bg-red-500' 
   },
@@ -207,12 +488,40 @@ export const GODS_LIST: GodProfile[] = [
     id: 'gayatri', 
     name: 'Maa Gayatri', 
     hindiName: 'माँ गायत्री', 
-    image: 'https://cdn.pixabay.com/photo/2023/06/25/11/12/woman-8086810_1280.jpg', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Gayatri_Mata.jpg/480px-Gayatri_Mata.jpg', 
     status: FeatureStatus.ACTIVE, 
     primaryColor: 'bg-yellow-500' 
   },
-  { id: 'ram', name: 'Shree Ram', hindiName: 'श्री राम', image: 'https://picsum.photos/seed/ram/200/200', status: FeatureStatus.COMING_SOON, primaryColor: 'bg-blue-600' },
-  { id: 'krishna', name: 'Shree Krishna', hindiName: 'श्री कृष्ण', image: 'https://picsum.photos/seed/krishna/200/200', status: FeatureStatus.COMING_SOON, primaryColor: 'bg-cyan-600' },
-  { id: 'shiv', name: 'Mahadev', hindiName: 'महादेव', image: 'https://picsum.photos/seed/shiv/200/200', status: FeatureStatus.COMING_SOON, primaryColor: 'bg-stone-600' },
-  { id: 'durga', name: 'Maa Durga', hindiName: 'माँ दुर्गा', image: 'https://picsum.photos/seed/durga/200/200', status: FeatureStatus.COMING_SOON, primaryColor: 'bg-red-600' },
+  { 
+    id: 'ram', 
+    name: 'Shree Ram', 
+    hindiName: 'श्री राम', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Raja_Ravi_Varma_-_Ramapanchayatan.jpg/480px-Raja_Ravi_Varma_-_Ramapanchayatan.jpg', 
+    status: FeatureStatus.ACTIVE, 
+    primaryColor: 'bg-blue-600' 
+  },
+  { 
+    id: 'krishna', 
+    name: 'Shree Krishna', 
+    hindiName: 'श्री कृष्ण', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Krishna_holding_Govardhan_hill.jpg/480px-Krishna_holding_Govardhan_hill.jpg', 
+    status: FeatureStatus.ACTIVE, 
+    primaryColor: 'bg-cyan-600' 
+  },
+  { 
+    id: 'shiv', 
+    name: 'Mahadev', 
+    hindiName: 'महादेव', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Shiva_statue_at_Rishikesh.jpg/480px-Shiva_statue_at_Rishikesh.jpg', 
+    status: FeatureStatus.ACTIVE, 
+    primaryColor: 'bg-stone-600' 
+  },
+  { 
+    id: 'durga', 
+    name: 'Maa Durga', 
+    hindiName: 'माँ दुर्गा', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Durga_idol_w_kolkata.jpg/480px-Durga_idol_w_kolkata.jpg', 
+    status: FeatureStatus.ACTIVE, 
+    primaryColor: 'bg-red-600' 
+  },
 ];

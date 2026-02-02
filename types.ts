@@ -31,7 +31,7 @@ export enum FeatureStatus {
 export interface DashboardItem {
   id: string;
   title: string;
-  icon: string; // Emoji or Icon name
+  icon: string;
   status: FeatureStatus;
   route?: string;
 }
@@ -40,7 +40,7 @@ export interface GodProfile {
   id: string;
   name: string;
   hindiName: string;
-  image: string; // Placeholder URL
+  image: string;
   status: FeatureStatus;
   primaryColor: string;
 }

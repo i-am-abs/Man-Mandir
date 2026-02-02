@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Man Mandir</title>
+    <link rel="icon" type="image/png" href="/image.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;800&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
     <script>
@@ -32,6 +33,20 @@
             fontFamily: {
               sans: ['Mukta', 'sans-serif'],
               serif: ['Noto Serif Devanagari', 'serif'],
+            },
+            animation: {
+              marquee: 'marquee 25s linear infinite',
+              'fade-in': 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
             }
           }
         }
@@ -39,19 +54,22 @@
     </script>
     <style>
       body {
-        background-color: #f3f4f6; /* Gray-100 outside the mobile container */
+        background-color: #000; /* Dark background for notch areas */
+        overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
       }
-      .dark body {
-        background-color: #020617;
-      }
-      /* Hide scrollbar for Chrome, Safari and Opera */
       .no-scrollbar::-webkit-scrollbar {
           display: none;
       }
-      /* Hide scrollbar for IE, Edge and Firefox */
       .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      /* Safe area utilities */
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top);
       }
     </style>
   <script type="importmap">
@@ -65,11 +83,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+  </body>
 </html>

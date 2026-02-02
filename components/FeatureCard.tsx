@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FeatureStatus } from '../types';
 
 interface FeatureCardProps {
@@ -25,6 +25,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   isLoading = false
 }) => {
   const isActive = status === FeatureStatus.ACTIVE;
+  const [imageError, setImageError] = useState(false);
 
   // Base styles
   let cardClasses = 'relative overflow-hidden rounded-2xl transition-all duration-300 ';
@@ -32,7 +33,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   if (isActive) {
       cardClasses += 'cursor-pointer ';
       if (isHighlighted) {
-          // Highlight style
           cardClasses += 'bg-orange-50 dark:bg-slate-800/80 border-2 border-orange-200 dark:border-orange-500/30 shadow-md ';
       } else {
           cardClasses += 'bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 hover:shadow-lg hover:border-orange-100 dark:hover:border-slate-600 ';
@@ -47,24 +47,36 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     }
   };
 
+  const renderImageOrIcon = (imgClass: string, iconContainerClass: string) => {
+    if (image && !imageError) {
+      return (
+        <img 
+            src={image} 
+            alt={title} 
+            onError={() => setImageError(true)}
+            className={`${imgClass} bg-gray-200 dark:bg-slate-700`}
+        />
+      );
+    }
+    // Fallback if image fails or not provided
+    return (
+        <div className={`${iconContainerClass} bg-orange-100 dark:bg-slate-700 text-orange-600 dark:text-orange-400 flex items-center justify-center`}>
+            {icon ? icon : '🕉️'}
+        </div>
+    );
+  };
+
   if (variant === 'list') {
     return (
       <div onClick={handleInteraction} className={`${cardClasses} p-3.5 flex items-center gap-4 group active:scale-[0.98]`}>
-        {image ? (
-            <div className={`relative flex-shrink-0 transition-all duration-500 ease-out ${isHighlighted ? 'w-16 h-16' : 'w-14 h-14'} ${isLoading ? 'scale-110' : ''}`}>
-                 <div className={`w-full h-full rounded-full p-0.5 transition-all duration-500 ${isHighlighted ? 'bg-orange-200 dark:bg-orange-500/50' : 'bg-gray-100 dark:bg-slate-700'} ${isLoading ? 'ring-2 ring-saffron-500 shadow-[0_0_15px_rgba(234,88,12,0.6)]' : ''}`}>
-                    <img 
-                        src={image} 
-                        alt={title} 
-                        className={`w-full h-full rounded-full object-cover bg-white dark:bg-slate-800 transition-all duration-500 ${!isActive && 'grayscale opacity-70'} ${isLoading ? 'brightness-110' : ''}`} 
-                    />
-                 </div>
-            </div>
-        ) : (
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl ${isActive ? 'bg-orange-100 dark:bg-slate-700 text-orange-600' : 'bg-gray-200 dark:bg-slate-800 text-gray-400'}`}>
-                {icon}
-            </div>
-        )}
+        <div className={`relative flex-shrink-0 transition-all duration-500 ease-out ${isHighlighted ? 'w-16 h-16' : 'w-14 h-14'} ${isLoading ? 'scale-110' : ''}`}>
+             <div className={`w-full h-full rounded-full p-0.5 transition-all duration-500 overflow-hidden ${isHighlighted ? 'bg-orange-200 dark:bg-orange-500/50' : 'bg-gray-100 dark:bg-slate-700'} ${isLoading ? 'ring-2 ring-saffron-500 shadow-[0_0_15px_rgba(234,88,12,0.6)]' : ''}`}>
+                {renderImageOrIcon(
+                    `w-full h-full rounded-full object-cover transition-all duration-500 ${!isActive && 'grayscale opacity-70'} ${isLoading ? 'brightness-110' : ''}`,
+                    `w-full h-full rounded-full text-2xl`
+                )}
+             </div>
+        </div>
         
         <div className="flex-1 min-w-0">
             <h3 className={`font-bold truncate transition-colors duration-300 ${isHighlighted || isLoading ? 'text-lg text-maroon-900 dark:text-orange-50' : 'text-base text-gray-800 dark:text-gray-200'}`}>
@@ -108,7 +120,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       )}
 
       <div className={`text-4xl mb-4 transition-transform duration-300 ${isActive ? 'group-hover:scale-110 drop-shadow-sm' : 'grayscale opacity-50'}`}>
-        {icon}
+        {icon ? icon : '🕉️'}
       </div>
       
       <h3 className={`font-bold font-serif text-lg ${isActive ? 'text-maroon-900 dark:text-orange-100' : 'text-gray-400 dark:text-gray-600'}`}>

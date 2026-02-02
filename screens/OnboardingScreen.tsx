@@ -9,7 +9,8 @@ const OnboardingScreen: React.FC = () => {
   const handleContinue = () => {
     if (name.trim().length > 0) {
       localStorage.setItem('userName', name.trim());
-      navigate('/welcome', { replace: true });
+      // Direct to Home, bypassing Welcome screen as requested
+      navigate('/home', { replace: true });
     }
   };
 
